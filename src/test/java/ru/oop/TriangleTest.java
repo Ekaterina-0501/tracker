@@ -4,9 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.offset;
 
-
 class TriangleTest {
-
     @Test
     public void when00and40and04Then8() {
         Point a = new Point(0, 0);
@@ -17,6 +15,7 @@ class TriangleTest {
         double expected = 8;
         assertThat(rsl).isCloseTo(expected, offset(0.001));
     }
+
     @Test
     public void when00and40andMinus40ThenMinus1() {
         Point a = new Point(0, 0);
