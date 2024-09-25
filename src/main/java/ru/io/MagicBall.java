@@ -9,15 +9,15 @@ public class MagicBall {
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
         int answer = new Random().nextInt(3);
-        String result = "Может быть";
         switch (answer) {
             case 0:
-                result = "Да";
+                System.out.println("Да");
                 break;
             case 1:
-                result = "Нет";
+                System.out.println("Нет");
                 break;
+            default:
+                System.out.println("Может быть");
         }
-        System.out.println(result);
     }
 }
