@@ -44,6 +44,12 @@ public class StartUI {
                 } else {
                     System.out.println("Ошибка удаления.");
                 }
+            } else if (select == 4) {
+                System.out.println("=== Поиск заявки по id ===");
+                System.out.print("Введите id: ");
+                int id = Integer.parseInt(scanner.nextLine());
+                Item item = tracker.findById(id);
+                System.out.println(item != null ? item : "id не найден.");
             } else if (select == 6) {
                 run = false;
             }
