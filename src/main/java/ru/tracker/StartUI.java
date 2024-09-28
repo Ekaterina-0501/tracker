@@ -20,8 +20,8 @@ public class StartUI {
                 System.out.println("=== Вывод всех заявок ===");
                 Item[] items = tracker.findAll();
                 if (items.length != 0) {
-                    for (Item item: items) {
-                    System.out.println(item);
+                    for (Item item : items) {
+                        System.out.println(item);
                     }
                 } else {
                     System.out.println("Хранилище еще не содержит заявок.");
@@ -34,6 +34,16 @@ public class StartUI {
                 Item updateItem = new Item(name);
                 String label = tracker.replace(id, updateItem) ? "Заявка успешно отредактирована." : "Не найден id.";
                 System.out.println(label);
+            } else if (select == 3) {
+                System.out.println("=== Введите id заявки ===");
+                int id = Integer.parseInt(scanner.nextLine());
+                Item[] items = tracker.findAll();
+                if (id > 0 & id < items.length) {
+                    tracker.delete(id);
+                    System.out.println("Заявка удалена успешно.");
+                } else {
+                    System.out.println("Ошибка удаления.");
+                }
             } else if (select == 6) {
                 run = false;
             }
