@@ -27,7 +27,8 @@ public class StartUI {
                     System.out.println("Хранилище еще не содержит заявок.");
                 }
             } else if (select == 2) {
-                System.out.println("=== Введите id заявки ===");
+                System.out.println("=== Редактирование заявки ===");
+                System.out.println("Введите id: ");
                 int id = Integer.parseInt(scanner.nextLine());
                 System.out.print("Введите имя: ");
                 String name = scanner.nextLine();
@@ -35,15 +36,12 @@ public class StartUI {
                 String label = tracker.replace(id, updateItem) ? "Заявка успешно отредактирована." : "Не найден id.";
                 System.out.println(label);
             } else if (select == 3) {
-                System.out.println("=== Введите id заявки ===");
+                System.out.println("=== Удаление заявки ===");
+                System.out.print("Введите id: ");
                 int id = Integer.parseInt(scanner.nextLine());
-                Item[] items = tracker.findAll();
-                if (id > 0 & id < items.length) {
-                    tracker.delete(id);
-                    System.out.println("Заявка удалена успешно.");
-                } else {
-                    System.out.println("Ошибка удаления.");
-                }
+                Item item = tracker.findById(id);
+                tracker.delete(id);
+                System.out.println(item != null ? "Заявка удалена успешно." : "Ошибка удаления заявки.");
             } else if (select == 4) {
                 System.out.println("=== Поиск заявки по id ===");
                 System.out.print("Введите id: ");
@@ -51,7 +49,7 @@ public class StartUI {
                 Item item = tracker.findById(id);
                 System.out.println(item != null ? item : "id не найден.");
             } else if (select == 5) {
-                System.out.println("=== Поиск заявки по имени ===");
+                System.out.println("=== Поиск заявок по имени ===");
                 System.out.print("Введите имя заявки: ");
                 String name = scanner.nextLine();
                 Item[] items = tracker.findByName(name);
@@ -84,5 +82,4 @@ public class StartUI {
         Tracker tracker = new Tracker();
         new StartUI().init(scanner, tracker);
     }
-
 }
